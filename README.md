@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First install the dependencies by running the command:
+
+npm i
+
+and then run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +16,33 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Create a Timeline component in React
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Create a React component that displays a Timeline of events by order of occurance, bottom to top. On Desktop, the events are to be staggered inbetween two branches, whereas on mobile they would collapse to a single branch (see [Wireframes](#the-end-result).)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Every 5 seconds a new event is to be added on top of the Timeline, up to a defined max (say, 5 or 6 elements.) After the cap has been reached, the last event is to be removed also. You can produce events in anyway you like, even re-use them from a predefined array.
 
-## Learn More
+Each Event is made of a:
 
-To learn more about Next.js, take a look at the following resources:
+- time
+- title
+- description
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Constraints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The component needs to be a React component.
+- You can't use any pre-existing component libraries.
+- A simple instructable on how to view the example. Dependency `install` and `start` steps, at most.
+- Host your solution on Github/Gitlab to share it with us.
 
-## Deploy on Vercel
+## The end result
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Wireframe for Desktop
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[<img src="timeline-desktop.jpg" width="600"/>](timeline-desktop.jpg)
+
+### Wireframe for Mobile
+
+[<img src="timeline-mobile.jpg" width="200"/>](timeline-mobile.jpg)
+
+Coloring and design are up to you. Be creative, add decorations, animations/transitions that you feel would make for a good fit. Take the different aspect ratios into consideration.
