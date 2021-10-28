@@ -3,7 +3,6 @@
   position: relative;
   background-color: inherit;
   width: 50%;
-  height: 20vh;
 }
 
 .container::after {
@@ -112,7 +111,7 @@
 }
 
 .content {
-  padding: 2rem 2rem;
+  padding: 1.5rem;
   justify-content: space-between;
 }
 
@@ -150,8 +149,21 @@
 
   .timeContainer {
     order: 0;
+    padding: 1rem;
   }
+
   .content {
     justify-content: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .time {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+    margin: 0 0 0.4rem 0;
   }
 }

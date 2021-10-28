@@ -25,7 +25,7 @@ export const Timeline = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    if (timelineData?.length >= 6) {
+    if (timelineData?.length >= 7) {
       setTimelineData((timelineData) => [...timelineData.slice(1)]);
     }
   }, [timelineData]);
