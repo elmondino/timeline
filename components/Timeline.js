@@ -3,6 +3,9 @@ import styles from "./Timeline.module.css";
 import { TimelineItem } from "./TimelineItem";
 
 export const Timeline = ({ data }) => {
+
+  const maxElements = 7;
+
   const [timelineData, setTimelineData] = useState([
     {
       time: "17:33",
@@ -10,6 +13,7 @@ export const Timeline = ({ data }) => {
       description: "Description about what just happened",
     },
   ]);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     let iteration = 0;
@@ -18,14 +22,15 @@ export const Timeline = ({ data }) => {
         setTimelineData((timelineData) =>
           timelineData ? [...timelineData, data[iteration]] : [data[iteration]]
         );
+        iteration += 1;
+        setTick(iteration);
       }
-      iteration += 1;
-    }, 5000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (timelineData?.length >= 7) {
+    if (timelineData?.length > maxElements) {
       setTimelineData((timelineData) => [...timelineData.slice(1)]);
     }
   }, [timelineData]);
@@ -34,9 +39,12 @@ export const Timeline = ({ data }) => {
     <main className={styles.mainContainer}>
       <div className={styles.timeline}>
         {timelineData &&
-          timelineData.map((timeline, index) => (
-            <TimelineItem timeline={timeline} index={index} />
-          ))}
+          timelineData.map((timeline, index) => {
+            const globalIndex = tick + index + timelineData.length;
+            const side = globalIndex % 2 == 0 ? 'left' : 'right';
+            return <TimelineItem key={globalIndex} timeline={timeline} side={side} />
+          })
+        }
       </div>
     </main>
   );
